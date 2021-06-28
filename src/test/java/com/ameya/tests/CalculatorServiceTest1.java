@@ -6,6 +6,7 @@ import org.junit.Test;
 import com.ameya.services.CalculatorService1;
 
 public class CalculatorServiceTest1 {
+	//test for the service
 	@Test(expected = RuntimeException.class)
 	public final void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
 		CalculatorService1.add("1,2,3");
