@@ -6,11 +6,11 @@
   <properties>
   	<maven.compiler.source>11</maven.compiler.source>
   	<maven.compiler.target>11</maven.compiler.target>
-  	<sonar.projectKey>001-TDD</sonar.projectKey>
-  <sonar.organization>ameyajoshi</sonar.organization>
+  	<sonar.projectKey>001-testcases</sonar.projectKey>
+  <sonar.organization>ameyaorg</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-  <SONAR_TOKEN>29244b2c47753c8045aa58244722d32525f598e8</SONAR_TOKEN>
-  <sonar.coverage.jacoco.xmlReportPaths>../001-TDD/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+  <SONAR_TOKEN>52cccd9632d9e707552fc91a4a4a6349460520b4</SONAR_TOKEN>
+  <sonar.coverage.jacoco.xmlReportPaths>../001-TDD/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
   <dependencies>
   	<!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -27,7 +27,16 @@
   <version>2.28.2</version>
   <scope>test</scope>
 </dependency>
-	
+	<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
     </dependencies>
     <reporting>
         <plugins>
@@ -88,11 +97,11 @@
                     <release>11</release>
                 </configuration>
             </plugin>
-            <plugin>
+       <!--  <plugin>
         <groupId>org.sonarsource.scanner.maven</groupId>
         <artifactId>sonar-maven-plugin</artifactId>
         <version>3.7.0.1746</version>
-      </plugin>
+      </plugin> -->
     </plugins>
     </build>
 </project>

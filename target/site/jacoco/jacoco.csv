@@ -1,6 +1,9 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+001-TDD,com.ameya.helpers,PropertyHelper,30,0,2,0,12,0,3,0,2,0
 001-TDD,com.ameya.tdd.services.impl,MyServiceImpl,0,35,0,4,0,9,0,4,0,2
 001-TDD,com.ameya.services,CalculatorService,3,94,0,12,1,20,1,8,1,2
 001-TDD,com.ameya.services,CalculatorService2,40,0,6,0,8,0,5,0,2,0
 001-TDD,com.ameya.services,CalculatorService3,45,0,6,0,9,0,5,0,2,0
 001-TDD,com.ameya.services,CalculatorService1,36,0,4,0,7,0,4,0,2,0
+001-TDD,com.ameya.downloader,AirportDataModification,48,0,2,0,13,0,4,0,3,0
+001-TDD,com.ameya.downloader,AirportDataDownloader,120,0,4,0,34,0,9,0,7,0

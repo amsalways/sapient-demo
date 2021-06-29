@@ -27,8 +27,7 @@ eg. C:\work\practice\java\ws\001-TDD>mvn sonar:sonar -Dsonar.projectKey=001-TDD 
 Observe the Browser for the changes.and the analysis
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Add the sonarqube maven plugin dependecy
-update the project
+
 
 Login to sonarcloud.io using github credentials
 
@@ -48,7 +47,41 @@ Click on continue Click on Maven copy the properties to ur pom.xml
   <sonar.organization>ameyajoshi</sonar.organization>
   <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   Additionally  copy the entries from 1. create Github secret
-  <SONAR_TOKEN>29244b2c47753c8045aa58244722d32525f598e8</SONAR_TOKEN>
+  <SONAR_TOKEN>52cccd9632d9e707552fc91a4a4a6349460520b4</SONAR_TOKEN>
   Also add below entry for jacoco
    <sonar.coverage.jacoco.xmlReportPaths>../001-TDD/target/site/jacoco-aggregate/jacoco.xml
+   
+   run the below cmd
+C:\work\practice\java\ws\001-TDD>mvn clean verify sonar:sonar -Dsonar.login=52cccd9632d9e707552fc91a4a4a6349460520b4
+
+Site and Sonar Has to be Updated on every commit
+
+Install SonarLint plugin from eclipse marketplace
+This will enable for test analysis on dev machine It is before code not after code
+Like PMD for Eclipse
+Rt-Click on project select SonarLint --> Analyze
+
+++++++++++++++++++ Pull the data web scraping from airports.com using HttpRequest ++++++++++++++++
+Create a new Java Class AirportDataDownloader
+
+within main Do as in code
+
+++++++++++++++ Create a application.properties in resources +++++++++++++
+++++ Update POM.xml add slf4j dependencies ++++
+++++ Create PropertyHelper.java in com.ameya.PropertyHelper +++++++++++ Mention this will be used later
+++++ Modify AirportDataDownloader below sysout
+
++++ Explain Lambda expressions then come back to this code ++++
+
++++ Code in the code for populating the lists.
+
++++ code in the predicate method
+and show the below code
+System.out.println(airports
+				.stream()
+				//.filter(airport->airport.contains("Shivaji"))
+				.filter(airport->filterByNamePredicate(airport))
+				.findAny()
+				.orElse(null));
+++++ code int the class StreamsDemo
 

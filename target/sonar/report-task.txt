@@ -1,6 +1,7 @@
-projectKey=001-TDD
-serverUrl=http://localhost:9000
-serverVersion=8.9.1.44547
-dashboardUrl=http://localhost:9000/dashboard?id=001-TDD
-ceTaskId=AXpSI7_i2t85b-aZECuP
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXpSI7_i2t85b-aZECuP
+organization=ameyaorg
+projectKey=001-testcases
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.21322
+dashboardUrl=https://sonarcloud.io/dashboard?id=001-testcases
+ceTaskId=AXpSmILZxg_i8FVP5sp9
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXpSmILZxg_i8FVP5sp9

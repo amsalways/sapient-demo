@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AirportDataDownloader.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">001-TDD</a> &gt; <a href="index.source.html" class="el_package">com.ameya.downloader</a> &gt; <span class="el_source">AirportDataDownloader.java</span></div><h1>AirportDataDownloader.java</h1><pre class="source lang-java linenums">package com.ameya.downloader;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+<span class="nc" id="L16">public class AirportDataDownloader {</span>
+
+	public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
+<span class="nc" id="L19">		HttpRequest request=HttpRequest.newBuilder(new URI(&quot;https://ourairports.com/data/airports.csv&quot;))</span>
+<span class="nc" id="L20">				.GET()</span>
+<span class="nc" id="L21">				.timeout(Duration.ofMinutes(1))</span>
+<span class="nc" id="L22">				.build();</span>
+<span class="nc" id="L23">		HttpResponse&lt;String&gt; response=HttpClient.newHttpClient()</span>
+<span class="nc" id="L24">				.send(request,HttpResponse.BodyHandlers.ofString());</span>
+		//System.out.println(response.body());
+<span class="nc" id="L26">		BufferedReader reader=new BufferedReader(new StringReader(response.body()));</span>
+<span class="nc" id="L27">		String line=&quot;&quot;;</span>
+<span class="nc" id="L28">		List&lt;String&gt; airports=new ArrayList&lt;String&gt;();</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">		while((line=reader.readLine())!=null) {</span>
+<span class="nc" id="L30">			airports.add(line.replace(&quot;\&quot;&quot;,&quot;&quot;));</span>
+		}
+		//Filteration through Lambda and stream API
+<span class="nc" id="L33">		List&lt;String&gt; small_airports=airports</span>
+<span class="nc" id="L34">				.stream()</span>
+<span class="nc" id="L35">				.filter(airport-&gt;airport.contains(&quot;small_airport&quot;))</span>
+<span class="nc" id="L36">				.collect(Collectors.toList());</span>
+		
+<span class="nc" id="L38">		List&lt;String&gt; large_airports=airports</span>
+<span class="nc" id="L39">				.stream()</span>
+<span class="nc" id="L40">				.filter(airport-&gt;airport.contains(&quot;large_airport&quot;))</span>
+<span class="nc" id="L41">				.collect(Collectors.toList());</span>
+		
+<span class="nc" id="L43">		List&lt;String&gt; medium_airports=airports</span>
+<span class="nc" id="L44">				.stream()</span>
+<span class="nc" id="L45">				.filter(airport-&gt;airport.contains(&quot;medium_airport&quot;))</span>
+<span class="nc" id="L46">				.collect(Collectors.toList());</span>
+		/* This might create multiple threads to read data but not guaranteed the data may be fetched in different order everytime.
+		 * List&lt;String&gt; medium_airports=airports
+				.parallelStream()
+				.filter(airport-&gt;airport.contains(&quot;medium_airport&quot;))
+				.collect(Collectors.toList());
+		 */
+		
+		
+<span class="nc" id="L55">		System.out.println(small_airports.size());</span>
+<span class="nc" id="L56">		System.out.println(large_airports.size());</span>
+<span class="nc" id="L57">		System.out.println(medium_airports.size());</span>
+<span class="nc" id="L58">		System.out.println(airports</span>
+<span class="nc" id="L59">				.stream()</span>
+				//.filter(airport-&gt;airport.contains(&quot;Shivaji&quot;))
+<span class="nc" id="L61">				.filter(airport-&gt;filterByNamePredicate(airport))</span>
+<span class="nc" id="L62">				.findAny()</span>
+<span class="nc" id="L63">				.orElse(null));</span>
+		
+		//List&lt;String&gt; distinctAirports=airports.stream().distinct().collect(Collectors.toList());
+		//System.out.println(distinctAirports);
+<span class="nc" id="L67">	}</span>
+	
+	 public static boolean filterByNamePredicate(String airportName) { boolean
+<span class="nc bnc" id="L70" title="All 2 branches missed.">	 status=false; if(airportName.contains(&quot;Sivaji&quot;)) { status= true; } return</span>
+	  status; }
+	 
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
