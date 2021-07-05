@@ -1,7 +1,0 @@
-organization=ameyaorg
-projectKey=001-testcases
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.21322
-dashboardUrl=https://sonarcloud.io/dashboard?id=001-testcases
-ceTaskId=AXpWW6azJHYqsuOAQ_cn
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXpWW6azJHYqsuOAQ_cn
